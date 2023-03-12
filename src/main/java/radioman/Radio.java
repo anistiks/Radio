@@ -3,8 +3,26 @@ package radioman;
 public class Radio {
 
     protected int numberStation;
+    protected int maxRadioStation;
     protected int currentVolume;
+    protected int minRadioStation;
 
+    //конструкторы
+
+    public Radio() {
+        maxRadioStation = 9;
+        minRadioStation = 0;
+    }
+
+    public Radio(int stationCount) {
+        if (numberStation < 1) {
+            maxRadioStation = 0;
+        } else {
+            maxRadioStation = stationCount - 1;
+        }
+
+
+    }
 
     public void increaseVolume() {
         if (currentVolume < 10) {
@@ -23,7 +41,7 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (numberStation != 9) {
+        if (numberStation != maxRadioStation) {
             numberStation = numberStation + 1;
         } else {
             numberStation = 0;
