@@ -15,14 +15,17 @@ public class Radio {
     }
 
     public Radio(int stationCount) {
-        if (numberStation < 1) {
+        if (stationCount < 1) {
             maxRadioStation = 0;
         } else {
             maxRadioStation = stationCount - 1;
         }
-
-
     }
+    public int getStationCount() {
+        return maxRadioStation;
+    }
+
+    // из предыдущего
 
     public void increaseVolume() {
         if (currentVolume < 10) {
@@ -53,7 +56,7 @@ public class Radio {
         if (numberStation != 0) {
             numberStation = numberStation - 1;
         } else {
-            numberStation = 9;
+            numberStation = maxRadioStation;
         }
 
     }

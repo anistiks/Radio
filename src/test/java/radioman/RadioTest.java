@@ -371,6 +371,18 @@ public class RadioTest {
         assertEquals(5, radio.getNumberStation());
     }
 
+    @Test
+    public void shouldSetRadioStationNumbersDown() {   //должен понизить номер станции
+        Radio radio = new Radio(9);
+
+        radio.setNumberStation(9);
+
+        assertEquals(8, radio.getStationCount());
+    }
+
+
+
+
 
     // проверить старые тесты по новому конструктору
     @Test
@@ -385,7 +397,7 @@ public class RadioTest {
 
     @Test
     public void shouldNotSetCurrentRadioStationHigherMaxNewConstructor() {   //"не должен устанавливать текущую радиостанцию выше мах"
-        Radio radio = new Radio(111);
+        Radio radio = new Radio();
 
         radio.setNumberStation(4);
         radio.setNumberStation(1010);
@@ -394,8 +406,8 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSetMaxRadioStationWhenDecreaseMinConstructor() {   //"установи maх радиостанцию при уменьшении mix"
-        Radio radio = new Radio(9);
+    public void shouldSetMaxRadioStationWhenDecreaseMinConstructor() {
+        Radio radio = new Radio();
 
         radio.setNumberStation(0);
         radio.prevStation();
